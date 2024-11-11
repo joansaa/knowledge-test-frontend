@@ -152,13 +152,22 @@ const Dashboard = () => {
               </thead>
               <tbody>
                 {currentTransactions.map((transaction) => (
-                  <tr key={transaction.id} className="block sm:table-row mb-4 sm:mb-0">
+                  <tr
+                    key={transaction.id}
+                    className="block sm:table-row mb-4 sm:mb-0"
+                  >
                     <td className="p-4 sm:table-cell">
                       <input type="checkbox" />
                     </td>
-                    <td className="px-4 w-36 sm:w-auto sm:table-cell">{truncateText(transaction.item, 50)}</td>
-                    <td className="px-4 hidden sm:table-cell">${transaction.price}</td>
-                    <td className="px-4 hidden sm:table-cell">{transaction.date}</td>
+                    <td className="px-4 w-36 sm:w-auto sm:table-cell">
+                      {truncateText(transaction.item, 50)}
+                    </td>
+                    <td className="px-4 hidden sm:table-cell">
+                      ${transaction.price}
+                    </td>
+                    <td className="px-4 hidden sm:table-cell">
+                      {transaction.date}
+                    </td>
                     <td className="px-4 hidden sm:table-cell">
                       <span
                         className={`inline-block px-3 py-1 rounded-full ${
@@ -173,7 +182,7 @@ const Dashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 sm:table-cell">
-                      <div className="flex justify-center space-x-2">
+                      <div className="flex justify-start space-x-2">
                         <button
                           onClick={() => openDetailModal(transaction.id)}
                           className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200"
@@ -187,7 +196,9 @@ const Dashboard = () => {
                           <i className="codicon codicon-edit text-gray-600"></i>
                         </button>
                         <button
-                          onClick={() => handleDeleteTransaction(transaction.id)}
+                          onClick={() =>
+                            handleDeleteTransaction(transaction.id)
+                          }
                           className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200"
                         >
                           <i className="codicon codicon-trash text-gray-600"></i>
@@ -223,7 +234,9 @@ const Dashboard = () => {
                     <button
                       onClick={() => handlePageChange(index + 1)}
                       className={`px-2 py-1 sm:px-3 sm:py-1.5 text-sm ${
-                        index + 1 === currentPage ? "bg-blue-500 text-white" : "text-gray-600"
+                        index + 1 === currentPage
+                          ? "bg-blue-500 text-white"
+                          : "text-gray-600"
                       } rounded-lg`}
                     >
                       {index + 1}
@@ -234,7 +247,9 @@ const Dashboard = () => {
                   <button
                     onClick={() => handlePageChange(currentPage + 1)}
                     className={`px-2 py-1 sm:px-3 sm:py-1.5 text-sm ${
-                      currentPage === totalPages ? "text-gray-400" : "text-surface"
+                      currentPage === totalPages
+                        ? "text-gray-400"
+                        : "text-surface"
                     }`}
                     disabled={currentPage === totalPages}
                   >

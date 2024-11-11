@@ -39,27 +39,32 @@ const FormTransaction = ({
         <input
           type="text"
           name="item"
-          placeholder="Input Item Name" 
+          placeholder="Input Item Name"
           value={transaction.item}
           onChange={handleChange}
           className="w-full px-4 p-2 border rounded-full"
-
         />
         {errors.item && <p className="text-red-500 text-sm">{errors.item}</p>}
       </div>
       <div className="mb-4">
         <label className="block text-gray-700">Price</label>
         <div className="relative mt-1">
-          <i className="bx bx-dollar absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 transition-colors duration-300 pointer-events-none"></i>
+          <i
+            className={`bx bx-dollar absolute left-4 ${
+              errors.price ? "top-1/3" : "top-1/2"
+            } transform -translate-y-1/2 text-gray-400 transition-colors duration-300 pointer-events-none`}
+          ></i>
           <input
             type="number"
             name="price"
-            placeholder="0" 
+            placeholder="0"
             value={transaction.price}
             onChange={handleChange}
             className="w-full pl-10 pr-4 py-2 border rounded-full"
           />
-          {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>}
+          {errors.price && (
+            <p className="text-red-500 text-sm">{errors.price}</p>
+          )}
         </div>
       </div>
       <div className="mb-4">
@@ -78,19 +83,27 @@ const FormTransaction = ({
       <div className="mb-4">
         <label className="block text-gray-700">Status</label>
         <div className="relative mt-1">
-          <select 
+          <select
             name="status"
             placeholder="Select Status"
             value={transaction.status}
             onChange={handleChange}
             className="w-full px-4 p-2 border rounded-full appearance-none"
           >
-            <option className='text-gray-400'value="">Select Status</option>
+            <option className="text-gray-400" value="">
+              Select Status
+            </option>
             <option value="Pending">Pending</option>
             <option value="Completed">Completed</option>
           </select>
-          {errors.status && <p className="text-red-500 text-sm">{errors.status}</p>}
-          <i className="bx bx-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 transition-colors duration-300 pointer-events-none"></i>
+          {errors.status && (
+            <p className="text-red-500 text-sm">{errors.status}</p>
+          )}
+          <i
+            className={`bx bx-chevron-down absolute right-4 ${
+              errors.status ? "top-1/3" : "top-1/2"
+            } transform -translate-y-1/2 text-gray-400 transition-colors duration-300 pointer-events-none`}
+          ></i>
         </div>
       </div>
       <button
