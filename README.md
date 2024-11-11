@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo Application
-...
+https://gofinance-zeta.vercel.app/
 
 ## Technologies
 
@@ -79,4 +79,6 @@ Application can be responsive on various screen sizes.
    npm run start
 
 ## Documentation
-...
+https://bit.ly/Documentation-Knowledge-Test
+
+# Thankyou!
