@@ -6,10 +6,12 @@ import AddModal from "../components/AddModal";
 import DetailTransactionModal from "../components/DetailModal";
 
 const Dashboard = () => {
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [modalState, setModalState] = useState({
+    isAddModalOpen: false,
+    isEditModalOpen: false,
+    isDetailModalOpen: false,
+  });
   const [editTransactionId, seteditTransactionId] = useState(null);
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,13 +33,13 @@ const Dashboard = () => {
 
   const handleAddTransaction = async (transactionData) => {
     await createTransaction(transactionData);
-    setIsAddModalOpen(false);
+    toggleModal("isAddModalOpen");
   };
 
   const handleEditTransaction = async (transactionData) => {
     if (editTransactionId) {
       await updateTransaction(editTransactionId, transactionData);
-      setIsEditModalOpen(false);
+      toggleModal("isEditModalOpen");
     }
   };
 
@@ -49,13 +51,13 @@ const Dashboard = () => {
 
   const openDetailModal = async (id) => {
     await getTransactionById(id);
-    setIsDetailModalOpen(true);
+    toggleModal("isDetailModalOpen");
   };
 
   const openEditModal = async (id) => {
     await getTransactionById(id);
     seteditTransactionId(id);
-    setIsEditModalOpen(true);
+    toggleModal("isEditModalOpen");
   };
 
   const filteredTransactions = transactions
@@ -74,11 +76,8 @@ const Dashboard = () => {
     currentPage * itemsPerPage
   );
 
-  const truncateText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength) + "...";
-    }
-    return text;
+  const truncateText = (text, maxLength = 50) => {
+    return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
   };
 
   const handlePageChange = (pageNumber) => {
@@ -89,6 +88,13 @@ const Dashboard = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const toggleModal = (modalName) => {
+    setModalState((prevState) => ({
+      ...prevState,
+      [modalName]: !prevState[modalName],
+    }));
   };
 
   if (loading) {
@@ -121,7 +127,7 @@ const Dashboard = () => {
                 />
               </div>
               <button
-                onClick={() => setIsAddModalOpen(true)}
+                onClick={() => toggleModal("isAddModalOpen")}
                 className="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               >
                 <i className="codicon codicon-add mr-2"></i>
@@ -243,13 +249,13 @@ const Dashboard = () => {
 
       {/* Modals */}
       <AddModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
+        isOpen={modalState.isAddModalOpen}
+        onClose={() => toggleModal("isAddModalOpen")}
         onSubmit={handleAddTransaction}
       />
       <EditModal
-        isOpen={isEditModalOpen}
-        onClose={() => setIsEditModalOpen(false)}
+        isOpen={modalState.isEditModalOpen}
+        onClose={() => toggleModal("isEditModalOpen")}
         onSubmit={handleEditTransaction}
         initialValues={
           transaction && {
@@ -261,8 +267,8 @@ const Dashboard = () => {
         }
       />
       <DetailTransactionModal
-        isOpen={isDetailModalOpen}
-        onClose={() => setIsDetailModalOpen(false)}
+        isOpen={modalState.isDetailModalOpen}
+        onClose={() => toggleModal("isDetailModalOpen")}
         transaction={transaction}
       />
     </div>
