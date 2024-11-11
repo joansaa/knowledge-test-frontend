@@ -1,74 +1,82 @@
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Demo Application
+...
 
-In the project directory, you can run:
+## Technologies
 
-### `npm start`
+- Library : ReactJS
+- Styling : TailwindCSS
+- API : MockAPI.io
+- API Integration : Axios
+- Navigation : React Router DOM
+- State Management : Context
+- Icon : Codicon and Boxicon
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Login
+Because there is no API for authentication, use : \
+Email : admin@gmail.com \
+Password : admin
 
-### `npm test`
+### Register
+There is a register page on GoFinance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Register 
+There is a registration page in GoFinance that contains a name, position, email, and password form.
 
-### `npm run build`
+### CRUD 
+User can add, view, edit, and delete data after login.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Profile 
+User can view profile after login.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Search 
+User can search data according to the keywords that was entered.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Logout
+User can log out from the login session and return to the login page.
 
-### `npm run eject`
+### Pagination
+For page navigation in the table.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Security
+User cannot access other user's profile or view the contents of other user’s data.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Responsive 
+Application can be responsive on various screen sizes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Guide to Installing and Running Apps Locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/joansaa/knowledge-test-frontend/
 
-## Learn More
+2. **Move to the newly cloned project directory**
+   ```bash
+   cd [directory name]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Install TailwindCSS** \
+   https://tailwindcss.com/docs/installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Install Axios** \
+   https://axios-http.com/docs/intro
 
-### Code Splitting
+5. **Install React Router DOM** \
+   ```bash
+   npm install react-router-dom
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+6. **Install Icons** \
+   ```bash
+   > npm install @vscode/codicons
+   > npm install boxicons --save
 
-### Analyzing the Bundle Size
+7. **Run the App** \
+   ```bash
+   npm run start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# knowledge-test-frontend
->>>>>>> dc22e0498b7c76bd86c8a871366f1e887625de6e
+## Documentation
+...
